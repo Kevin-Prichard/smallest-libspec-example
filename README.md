@@ -69,3 +69,35 @@ if __name__ == "__main__":
 ```
 
 Here, we inherit from `libspec.Spec` and implement the `modules` method to return a list of our spec modules (in this case, just `app`). Then, calling `.write_xml("build-spec")` walks the object model, compiles our docstrings and inheritance trees, and renders the final language-agnostic XML specifications into the `build-spec/` directory.
+
+## Building the Spec
+
+To actually generate your parsed object model, execute the main spec file as a Python module from your project root:
+
+```bash
+python -m spec.main_spec
+```
+
+This runs your `SmallestExample` code, constructs your specification artifact, and neatly outputs it all into the `build-spec/` folder.
+
+## Reviewing Specs (Spec Diffs)
+
+Libspec provides a built-in tool that can be invoked as a Python module to evaluate your generated specifications. Once your specs are built into a directory, you can review them and view diffs using:
+
+```bash
+python -m libspec.spec_diff build-spec
+```
+
+This command compares existing specs, providing an efficient way to track additions, removals, and changes over the course of your iterative software specification.
+
+## The Libspec Workflow
+
+Once started, the generic workflow using libspec is approximately:
+
+1. **Build** the new spec artifact.
+2. **Diff** the new spec with the old spec using the binary to get the isolated changes.
+3. **Pass** the resulting changes to a coding agent to quickly generate the implementation.
+4. **`git commit`** the changes alongside the new spec. This approach encodes a record of development that supplements your standard Git commit messages.
+
+> [!NOTE]
+> For now, this workflow is largely manual. However, modern coding agents may be smart enough to learn this loop and automate the process entirely. Integrating the Model Context Protocol (MCP) to streamline this further is on the roadmap.
