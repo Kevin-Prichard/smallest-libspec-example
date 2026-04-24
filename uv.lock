@@ -256,8 +256,8 @@ wheels = [
 
 [[package]]
 name = "libspec"
-version = "1.0.1"
-source = { git = "https://github.com/drhodes/libspec#453a0d2db8c78f0c8f9ba4fadbf50aa8ae886d74" }
+version = "1.2.0"
+source = { git = "https://github.com/drhodes/libspec#096c7123e44a244e060e7874bfffb84b8c865de9" }
 dependencies = [
     { name = "jinja2" },
     { name = "lxml" },

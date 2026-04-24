@@ -10,3 +10,6 @@ spec: $(SPECS)
 diff:
 	$(PY) -m libspec.spec_diff $(SPEC_BUILD) 
 
+.PHONY: test-mcp
+test-mcp: 
+	npx @modelcontextprotocol/inspector uv run libspec-mcp

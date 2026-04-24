@@ -99,5 +99,33 @@ Once started, the generic workflow using libspec is approximately:
 3. **Pass** the resulting changes to a coding agent to quickly generate the implementation.
 4. **`git commit`** the changes alongside the new spec. This approach encodes a record of development that supplements your standard Git commit messages.
 
-> [!NOTE]
-> For now, this workflow is largely manual. However, modern coding agents may be smart enough to learn this loop and automate the process entirely. Integrating the Model Context Protocol (MCP) to streamline this further is on the roadmap.
+## Using Libspec with MCP
+
+Libspec provides a Model Context Protocol (MCP) server that exposes its functionality to compatible AI coding agents. This allows your agent to programmatically build, diff, and query your project's specifications.
+
+To use the `libspec-mcp` server, you'll need to configure your editor or AI agent to run it. Here is the standard JSON configuration snippet:
+
+```json
+{
+    "mcpServers": {
+        "libspec": {
+            "command": "uv",
+            "args": [
+                "run",
+                "libspec-mcp"
+            ]
+        }
+    }
+}
+```
+
+### Editor-Specific Configuration
+
+The process for adding a custom MCP server varies depending on your tool. Below are links to the official documentation for adding custom MCP servers for popular editors and AI agents:
+
+*   **Cursor:** [Adding Custom MCP Servers in Cursor](https://docs.cursor.com/context/model-context-protocol)
+*   **Claude Code:** [Claude Code MCP Configuration](https://modelcontextprotocol.io/quickstart/user)
+*   **Windsurf:** [Windsurf MCP Documentation](https://docs.codeium.com/windsurf/mcp)
+*   **GitHub Copilot:** [VS Code MCP Configuration](https://code.visualstudio.com/docs/editor/ai-chat#_model-context-protocol)
+*   **Gemini:** [Google Gemini MCP Integration](https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/model-context-protocol)
+*   **Aider:** [Aider MCP Documentation](https://aider.chat/docs/mcp.html)

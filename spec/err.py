@@ -7,8 +7,8 @@ from libspec import Ctx, Feature, Requirement
 class Err(Ctx):
     '''It's important that error handling be done excellently.  If a
     function can fail, then it needs to do so in the most elegant way
-    possble.  Error reporting, handling, exceptions and all aspects of
-    failure must be taken to extreme. It should be possible to
+    possible.  Error reporting, handling, exceptions and all aspects
+    of failure must be taken to extreme. It should be possible to
     understand the program by reading the error messages.
 
     '''
