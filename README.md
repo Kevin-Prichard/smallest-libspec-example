@@ -72,11 +72,20 @@ Here, we inherit from `libspec.Spec` and implement the `modules` method to retur
 
 ## Building the Spec
 
-To actually generate your parsed object model, execute the main spec file as a Python module from your project root:
+To actually generate your parsed object model, execute the main spec file as a Python module from your project root. Be sure you've set PYTHONPATH and aren't using relative imports:
 
 ```bash
 export PYTHONPATH=.
+```
+
+```bash
 python -m spec.main_spec
+```
+
+Or, in a `uv` environment:
+
+```bash
+uv run libspec build spec/main_spec.py
 ```
 
 This runs your `SmallestExample` code, constructs your specification artifact, and neatly outputs it all into the `build-spec/` folder.
